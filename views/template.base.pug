@@ -1,0 +1,41 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  meta(name='theme-color' content='#fff')
+  link(rel='shortcut icon' href='/favicon.svg')
+  title= (title ? title : "Keyoxide")
+  link(rel='stylesheet' href='/static/styles.css')
+header
+  .container
+    a.logo(href='/')
+      img(src='/static/img/logo_96.png' alt='Keyoxide logo')
+    .spacer
+    nav
+      a(href='/') about
+      a(href='/getting-started') getting started
+      a(href='/guides') guides
+      a(href='/faq') faq
+
+main.container
+  block content
+
+  footer
+    if settings.onion_url
+      p
+        | This website is available via Tor: 
+        a(href=`${settings.onion_url}`) #{settings.onion_url}
+    p
+      | Keyoxide 
+      a(href="https://codeberg.org/keyoxide/web/releases")= settings.keyoxide_version
+    p
+      a(href='https://codeberg.org/keyoxide') Source code
+      |  - 
+      a(href='https://drone.keyoxide.org/keyoxide/web/') CI/CD
+      |  - 
+      a(href='https://fosstodon.org/@keyoxide') Mastodon
+    p &copy; 2020 Keyoxide contributors
+
+script(src='/static/openpgp.min.js')
+script(src='/static/qrcode.min.js')
+script(type='application/javascript' src='/static/scripts.js' charset='utf-8')

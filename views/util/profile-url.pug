@@ -1,0 +1,46 @@
+extends ../template.base.pug
+
+block content
+  .content
+    h1 Profile URL
+    form#form-util-profile-url(method='post')
+      p This tool generates an URL for your Keyoxide profile page.
+      h3 Public key
+      label(for='source') Source: 
+      select#source.source(name='source')
+        option(value='wkd') Web Key Directory
+        option(value='hkp') keys.openpgp.org
+        option(value='keybase') Keybase
+      br
+      input#input(type='text' name='input' placeholder='Input' value='')
+      h3 Profile URL
+      code#output Waiting for input...
+      h3 Help
+      p
+        | When using the 
+        strong Web Key Directory
+        |  source, the 
+        strong Input
+        |  looks like 
+        strong username@domain.org
+        | .
+      p
+        | When using the 
+        strong keys.openpgp.org
+        |  source, the 
+        strong Input
+        |  is either the 
+        strong fingerprint
+        |  of your public key, or the main identity&apos;s 
+        strong email address
+        | .
+      p
+        | When using the 
+        strong Keybase
+        |  source, the 
+        strong Input
+        |  is the URL obtained by going to your Keybase profile page, clicking on the 
+        strong key id
+        |  of your keypair and copying the URL of the 
+        strong this key
+        |  link.

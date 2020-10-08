@@ -1,0 +1,106 @@
+---
+
+kind: pipeline
+name: build-stable-container
+
+steps:
+    - name: build stable container
+      image: plugins/docker
+      settings:
+          username:
+              from_secret: docker_username
+          password:
+              from_secret: docker_password
+          repo: keyoxide/keyoxide
+          tags: stable
+    - name: build tag container
+      image: plugins/docker
+      settings:
+          username:
+              from_secret: docker_username
+          password:
+              from_secret: docker_password
+          repo: keyoxide/keyoxide
+          auto_tag: true
+
+trigger:
+    event:
+        - tag
+
+---
+
+kind: pipeline
+name: build-dev-container
+
+steps:
+    - name: build dev container
+      image: plugins/docker
+      settings:
+          username:
+              from_secret: docker_username
+          password:
+              from_secret: docker_password
+          repo: keyoxide/keyoxide
+          tags: dev
+
+trigger:
+    branch:
+        - dev
+    event:
+        - push
+
+---
+
+kind: pipeline
+type: exec
+name: deploy-stable
+
+steps:
+    - name: pull docker container
+      commands:
+          - docker pull keyoxide/keyoxide:stable
+    - name: stop and remove existing docker container
+      commands:
+          - docker stop keyoxide || true && docker rm keyoxide || true
+    - name: run new docker container
+      environment:
+          TWITTER_API_AUTH:
+              from_secret: twitter_api_auth
+      commands:
+          - docker run -d -e "TWITTER_API_AUTH=$${TWITTER_API_AUTH}" --name keyoxide -h keyoxide --network dc_web keyoxide/keyoxide:stable
+
+trigger:
+    event:
+        - tag
+
+depends_on:
+    - build-stable-container
+
+---
+
+kind: pipeline
+type: exec
+name: deploy-dev
+
+steps:
+    - name: pull docker container
+      commands:
+          - docker pull keyoxide/keyoxide:dev
+    - name: stop and remove existing docker container
+      commands:
+          - docker stop keyoxide-dev || true && docker rm keyoxide-dev || true
+    - name: run new docker container
+      environment:
+          TWITTER_API_AUTH:
+              from_secret: twitter_api_auth
+      commands:
+          - docker run -d -e "TWITTER_API_AUTH=$${TWITTER_API_AUTH}" --name keyoxide-dev -h keyoxide --network dc_web keyoxide/keyoxide:dev
+
+trigger:
+    branch:
+        - dev
+    event:
+        - push
+
+depends_on:
+    - build-dev-container

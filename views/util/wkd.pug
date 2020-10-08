@@ -1,0 +1,21 @@
+extends ../template.base.pug
+
+block content
+  .content
+    h1 Web Key Directory generator
+    form#form-util-wkd(method='post')
+      p
+        | This tool computes the part of the WKD URL that corresponds to the username when 
+        a(href='/guides/web-key-directory') uploading keys using web key directory
+        | .
+      p
+        | If you enter the entire WKD identifier (username@domain.org), this tool will also generate the complete URLs.
+      h3 Input
+      input#input(type='text' name='input' placeholder='WKD username or identifier' value=input)
+      h3 Output
+      h4 Local part
+      code#output.full-width Waiting for input...
+      h4 Direct URL
+      code#output_url_direct.full-width Waiting for input...
+      h4 Advanced URL
+      code#output_url_advanced.full-width Waiting for input...

@@ -1,0 +1,105 @@
+extends template.base.pug
+
+block content
+  .content
+    h1 Keyoxide
+    p
+      a(href="/") Keyoxide
+      |  is a modern, secure and privacy-friendly platform to establish your 
+      strong decentralized online identity
+      | .
+    
+    a(href="/getting-started").fancyBtn Get started here
+    
+    h2 About
+    p
+      strong Keyoxide
+      |  allows you to link accounts on various online services and platforms together, prove they belong to you and establish an online identity. This puts 
+      strong you
+      | , the internet citizen, in charge when it comes to defining who you are on the internet instead of large corporations.
+    p
+      | As an example, here&apos;s the 
+      a(href='/9f0048ac0b23301e1f77e994909f6bd6f80f485d') developer&apos;s Keyoxide profile
+      | .
+    p
+      strong Keyoxide
+      |  is developed by 
+      a(href='https://yarmo.eu') Yarmo Mackenbach
+      | . The AGPL-v3-licensed code is hosted on 
+      a(href='https://codeberg.org/keyoxide/web') Codeberg
+      | . It uses 
+      a(href='https://github.com/openpgpjs/openpgpjs') openpgp.js
+      |  (version 
+      a(href='https://github.com/openpgpjs/openpgpjs/releases/tag/v4.10.7') 4.10.7
+      | ) for all cryptographic operations.
+    
+    h2 Features
+    
+    h3 Decentralized online identity proofs
+    ul
+      li You decide which accounts are linked together
+      li You decide where this data is stored
+      li Keyoxide does not hold your identity data on its servers
+      li Keyoxide merely verifies the identity proofs and displays them
+    
+    h3 Empowering the internet citizen
+    ul
+      li A verified identity proof proves ownership of an account and builds trust
+      li No bad actor can impersonate you as long as your accounts aren&apos;t compromised
+      li Your online identity data is safe from greedy internet corporations
+    
+    h3 User-centric platform
+    ul
+      li Easily encrypt messages and verify signatures from the profile page
+      li
+        | Keyoxide generates QR codes that integrate with 
+        a(href='https://www.openkeychain.org/') OpenKeychain
+        |  and 
+        a(href='https://conversations.im/') Conversations
+      li Keyoxide fetches the key wherever the used decides to store it
+      li Keyoxide is self-hostable, meaning you could put it on any server you trust
+    
+    h3 Secure and privacy-friendly
+    ul
+      li Keyoxide doesn&apos;t want your personal data, track you or show you ads
+      li You never give data to Keyoxide, it simply uses the data you have made public
+      li
+        | Keyoxide relies on OpenPGP, a widely used public-key cryptography standard (
+        a(href='https://tools.ietf.org/html/rfc4880') RFC-4880
+        | )
+      li
+        | Cryptographic operations are performed in-browser by 
+        a(href='https://openpgpjs.org/') OpenPGP.js
+        | , a library maintained by 
+        a(href='https://protonmail.com/blog/openpgpjs-email-encryption/') ProtonMail
+    
+    h3 Free Open Source Software
+    ul
+      li
+        | Keyoxide is licensed under the  
+        a(href='https://codeberg.org/keyoxide/web/src/branch/main/LICENSE') AGPL-v3 license
+      li
+        | The source code is hosted on 
+        a(href='https://codeberg.org/keyoxide/web') Codeberg.org
+      li
+        | Even the 
+        a(href='https://drone.keyoxide.org/keyoxide/web/') CI/CD activity
+        |  is publicly visible
+        
+    .flex-column-container
+      .flex-column
+        h2 Cryptographic operations
+        p
+          a(href='/verify') Verify PGP signature
+          br
+          a(href='/encrypt') Encrypt PGP message
+          br
+          a(href='/proofs') Verify distributed identity proofs
+      .flex-column
+        h2 Utilities
+        p
+          a(href='/util/profile-url') Profile URL generator
+          br
+          a(href='/util/wkd') Web Key Directory URL generator
+          br
+          a(href='/util/qrfp') Fingerprint QR generator

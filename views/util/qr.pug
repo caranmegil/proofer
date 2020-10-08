@@ -1,0 +1,9 @@
+extends ../template.base.pug
+
+block content
+  .content
+    h1 QR Code
+    form#form-util-qr(method='post')
+      code#input.full-width !{input}
+    canvas#qrcode
+    a#qrcode--altLink(href='#') Press this link to directly open the URI

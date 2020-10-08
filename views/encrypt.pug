@@ -1,0 +1,14 @@
+extends template.base.pug
+
+block content
+  .content
+    h1 Encrypt
+    form#form-encrypt(method='post')
+      h3 Recipient
+      label(for='modeSelect') Mode: 
+      include partials/key_selector
+      
+      h3 Message
+      textarea#message(name='message')
+      p#result
+      input.bigBtn(type='submit' name='submit' value='ENCRYPT MESSAGE')

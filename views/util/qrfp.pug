@@ -1,0 +1,15 @@
+extends ../template.base.pug
+
+block content
+  .content
+    h1 QR Code
+    form#form-util-qrfp(method='post')
+      p
+        | This tool generates a QR code containing the fingerprint of your public key (
+        a(href='https://github.com/open-keychain/open-keychain/wiki/QR-Codes') format
+        | ). This QR code can be scanned by apps like 
+        a(href='https://www.openkeychain.org/') OpenKeyChain
+        | .
+      h3 Fingerprint
+      input#input(type='text' name='input' placeholder='Fingerprint' value=input)
+    canvas#qrcode

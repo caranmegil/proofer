@@ -1,0 +1,24 @@
+select#modeSelect.modeSelect(name='modeSelect')
+  option(value='auto'      selected=(mode == "auto" ? true : false)) Autodetect
+  option(value='wkd'       selected=(mode == "wkd" ? true : false)) Web Key Directory
+  option(value='hkp'       selected=(mode == "hkp" ? true : false)) Keyserver
+  option(value='plaintext' selected=(mode == "plaintext" ? true : false)) Plaintext
+  option(value='keybase'   selected=(mode == "keybase" ? true : false)) Keybase
+  
+.modesContainer
+  .modes.modes--auto(class=(mode == "auto" ? "modes--visible" : ""))
+    input#auto_input(type='text' name='auto_input' placeholder='Email / key id / fingerprint' value=(mode == "auto" ? input : ""))
+    
+  .modes.modes--wkd(class=(mode == "wkd" ? "modes--visible" : ""))
+    input#wkd_input(type='text' name='wkd_input' placeholder='name@domain.org' value=(mode == "wkd" ? input : ""))
+    
+  .modes.modes--hkp(class=(mode == "hkp" ? "modes--visible" : ""))
+    input#hkp_input(type='text' name='hkp_input' placeholder='Email / key id / fingerprint' value=(mode == "hkp" ? input : ""))
+    input#hkp_server(type='text' name='hkp_server' placeholder='https://keys.openpgp.org/ (default)')
+    
+  .modes.modes--plaintext(class=(mode == "plaintext" ? "modes--visible" : ""))
+    textarea#plaintext_input(name='plaintext_input')
+    
+  .modes.modes--keybase(class=(mode == "keybase" ? "modes--visible" : ""))
+    input#keybase_username(type='text' name='keybase_username' placeholder='username' value=(mode == "keybase" ? username : ""))
+    input#keybase_fingerprint(type='text' name='keybase_fingerprint' placeholder='fingerprint' value=(mode == "keybase" ? fingerprint : ""))

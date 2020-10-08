@@ -1,0 +1,17 @@
+extends template.base.pug
+
+block content
+  .content
+    h1 Verify
+    form#form-verify(method='post')
+      h3 Signer
+      label(for='modeSelect') Mode: 
+      include partials/key_selector
+      
+      h3 Signature
+      textarea#signature(name='signature')
+      
+      h3 Result
+      p#result
+      p#resultContent
+      input.bigBtn(type='submit' name='submit' value='VERIFY SIGNATURE')

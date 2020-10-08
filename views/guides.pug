@@ -1,0 +1,63 @@
+extends template.base.pug
+
+block content
+  .content
+    h1 Guides
+    .guides
+      .guides__section
+        h3 Using Keyoxide
+        a(href='/guides/verify') Verifying a signature
+        br
+        a(href='/guides/encrypt') Encrypting a message
+        br
+        a(href='/guides/proofs') Verifying identity proofs
+        br
+        a(href='/guides/contributing') Contributing to Keyoxide
+        br
+        a(href='/guides/self-hosting-keyoxide') Self-hosting Keyoxide
+        
+      .guides__section
+        h3 OpenPGP and identity proofs
+        a(href='/guides/openpgp-proofs') How OpenPGP identity proofs work
+        br
+        a(href='/guides/web-key-directory') Uploading keys using web key directory
+        
+      .guides__section
+        h3 Adding proofs
+        a(href='/guides/devto') Dev.to
+        br
+        a(href='/guides/discourse') Discourse
+        br
+        a(href='/guides/dns') Domain / DNS
+        br
+        a(href='/guides/gitea') Gitea
+        br
+        a(href='/guides/github') GitHub
+        br
+        a(href='/guides/gitlab') GitLab
+        br
+        a(href='/guides/hackernews') Hackernews
+        br
+        a(href='/guides/lobsters') Lobste.rs
+        br
+        a(href='/guides/mastodon') Mastodon
+        br
+        a(href='/guides/pleroma') Pleroma
+        br
+        a(href='/guides/reddit') Reddit
+        br
+        a(href='/guides/twitter') Twitter
+        br
+        a(href='/guides/xmpp') XMPP+OMEMO
+        
+      .guides__section
+        h3 Other services
+        a(href='/guides/feature-comparison-keybase') Feature comparison with Keybase
+        br
+        a(href='/guides/migrating-from-keybase') Migrating from Keybase
+        
+      .guides__section
+        h3 Managing proofs in GnuPG
+        a(href='/guides/managing-proofs-listing') Listing proofs
+        br
+        a(href='/guides/managing-proofs-deleting') Deleting proofs

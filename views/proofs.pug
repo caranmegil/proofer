@@ -1,0 +1,14 @@
+extends template.base.pug
+
+block content
+  .content
+    h1 Proofs
+    form#form-proofs(method='post')
+      h3 Public key
+      label(for='modeSelect') Mode: 
+      include partials/key_selector
+      
+      h3 Result
+      p#result
+      p#resultContent
+      input.bigBtn(type='submit' name='submit' value='VERIFY PROOFS')

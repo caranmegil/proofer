@@ -1,0 +1,388 @@
+/*
+Copyright (C) 2020 Yarmo Mackenbach
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program. If not, see <https://www.gnu.org/licenses/>.
+
+Also add information on how to contact you by electronic and paper mail.
+
+If your software can interact with users remotely through a computer network,
+you should also make sure that it provides a way for users to get its source.
+For example, if your program is a web application, its interface could display
+a "Source" link that leads users to an archive of the code. There are many
+ways you could offer source, and different solutions will be better for different
+programs; see section 13 for the specific requirements.
+
+You should also get your employer (if you work as a programmer) or school,
+if any, to sign a "copyright disclaimer" for the program, if necessary. For
+more information on this, and how to apply and follow the GNU AGPL, see <https://www.gnu.org/licenses/>.
+*/
+* {
+    box-sizing: border-box;
+}
+body {
+	margin: 0;
+    color: #444;
+    font-family: sans-serif;
+	background-color: #9dd3f0;
+    background-image: url('/static/img/background.svg');
+    background-repeat: repeat;
+    background-size: 512px;
+    background-position: -16px -16px;
+}
+header {
+    height: 64px;
+    padding: 8px;
+    margin: 0 0 48px;
+    font-size: 1.1em;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+header .container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+header a.logo {
+    display: inline-block;
+    height: 100%;
+}
+header .logo img {
+    height: 100%;
+    margin: 0 1em 0 0;
+}
+nav a {
+    margin-left: 12px;
+}
+footer {
+    color: #777;
+    margin: 64px 0;
+    padding: 0 32px;
+    font-size: 0.9em;
+    overflow-wrap: break-word;
+}
+footer a {
+    color: #777;
+}
+.container {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+}
+.content {
+    padding: 16px 32px 32px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.spacer {
+    flex: 1;
+}
+.flex-column-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-column {
+    flex: 1 0 250px;
+}
+.bigBtn {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+    color: #fff;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #3f9acc;
+    background: linear-gradient(0deg, #3892c2 0%, #6abae5 100%);
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.bigBtn:hover {
+    color: #fff;
+    background-color: #72bde6;
+    background: linear-gradient(0deg, #4da4d2 0%, #82c5ea 100%);
+}
+.fancyBtn {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 8px 24px;
+    color: #fff;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    background: #8b76f2;
+    /* background: linear-gradient(90deg, #8b76f2 0%, #6abae5 100%); */
+    background: linear-gradient(90deg, #6957c4 0%, #43afea 100%);
+    border: 0;
+    border-radius: 64px;
+    cursor: pointer;
+}
+.fancyBtn:hover {
+    color: #fff;
+    background-color: #a595f4;
+    /* background: linear-gradient(90deg, #a595f4 0%, #93d9ff 100%); */
+    /* background: linear-gradient(90deg, #6957c4 0%, #43afea 100%); */
+    background: linear-gradient(90deg, #8b76f2 0%, #6abae5 100%);
+}
+.full-width {
+    width: 100% !important;
+}
+
+h1 {
+    margin: 0 0 24px 0;
+    color: #222;
+    /* background-color: #9dd3f0; */
+    background-color: #fff;
+    text-align: center;
+    cursor: default;
+}
+h1::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin-top: 12px;
+    background: linear-gradient(90deg, #8b76f2 0%, #6abae5 100%);
+    border-radius: 2px;
+}
+h2, h3 {
+    margin-top: 32px;
+    color: #222;
+    cursor: default;
+}
+h2 {
+    padding-right: 32px;
+}
+h2::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    /* background: linear-gradient(90deg, #8b76f2 0%, #3892c2 50%, #6abae5 100%); */
+    background: linear-gradient(90deg, #3892c2 0%, #6abae5 100%);
+    border-radius: 1px;
+}
+p {
+	line-height: 1.4em;
+    font-size: 1.1em;
+}
+a {
+    color: #3f9acc;
+}
+a:hover {
+    color: #6957c4;
+}
+a.bigBtn {
+    margin-right: 8px;
+}
+a.header-anchor {
+    text-decoration: none;
+    opacity: 0.5;
+}
+a.header-anchor:hover {
+    opacity: 1;
+}
+ul {
+    list-style: "-  ";
+}
+pre {
+    white-space: pre-wrap;
+}
+code {
+    display: block;
+    padding: 8px;
+    background-color: #eee;
+    border: solid 1px #ddd;
+    user-select: all;
+    word-break: break-word;
+    /* word-break: break-all; */
+}
+textarea {
+    width: 100%;
+    height: 128px;
+    resize: vertical;
+    font-size: 0.9rem;
+}
+input[type="text"] {
+    margin: 0 12px 12px 0;
+    width: 45%;
+    font-size: 0.9rem;
+}
+input[type="radio"] {
+    vertical-align: sub;
+}
+input[type="submit"] {
+    width: 100%;
+}
+input[type="submit"][disabled="true"] {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.3;
+}
+select {
+    margin: 0 0 16px 0;
+}
+.green, a.proofUrl.proofUrl--verified {
+    color: #499539;
+}
+.red {
+    color: red;
+}
+.label {
+    display: inline-block;
+    margin: 0 0 8px;
+}
+.modes {
+    display: none;
+}
+.modes.modes--visible {
+    display: block;
+}
+
+.container--profile {
+    margin-top: 64px;
+}
+.container--profile .content {
+    padding-top: 32px;
+    font-size: 1.2em;
+}
+.container--profile footer {
+    text-align: center;
+}
+
+.guides {
+    display: flex;
+    flex-wrap: wrap;
+}
+.guides__section {
+    flex: 1 0 250px;
+}
+.guides__section a {
+    line-height: 1.8em;
+}
+
+#profileHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 32px;
+}
+#profileAvatar {
+    width: 100%;
+    max-width: 128px;
+    border-radius: 100%;
+    margin-right: 32px;
+}
+#profileName {
+    font-size: 1.6em;
+    font-weight: bold;
+    display: inline-block;
+    max-width: 100%;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.profileDataItem {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.profileDataItem--separator {
+    margin-top: 1em;
+    font-weight: bold;
+}
+.profileDataItem__label {
+    display: inline-block;
+    position: relative;
+    flex: 1;
+    min-height: 32px;
+    padding: 0 8px;
+    max-width: 20%;
+    font-size: 0.9em;
+    line-height: 1.6em;
+    color: #777;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.profileDataItem__value {
+    display: inline-block;
+    flex: 1;
+    min-height: 32px;
+    max-width: 100%;
+    padding: 0 8px;
+}
+.profileDataItem__value a {
+    display: inline-block;
+    max-width: 100%;
+    margin-right: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+a.proofUrl {
+    color: #777;
+}
+a.proofQR {
+    line-height: 0;
+    background-color: #499539;
+    border-radius: 2px;
+}
+a.proofQR:hover {
+    background-color: #6abb5a;
+}
+
+#qrcode {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    width: auto !important;
+    height: auto !important;
+    margin: 32px auto;
+}
+
+@media (max-width: 680px) {
+    #profileHeader {
+        flex-direction: column;
+    }
+    #profileAvatar {
+        margin: 0;
+    }
+    #profileName {
+        font-size: 1.2em;
+    }
+    .profileDataItem {
+        flex-direction: column;
+		margin-bottom: 8px;
+    }
+    .profileDataItem__label {
+        max-width: 100%;
+        min-height: 28px;
+        text-align: left;
+    }
+    .profileDataItem__value {
+        min-height: 28px;
+    }
+	.profileDataItem--noLabel .profileDataItem__label {
+		display: none;
+	}
+
+    input[type="text"] {
+        width: 100%;
+    }
+}
